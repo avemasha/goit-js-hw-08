@@ -1,6 +1,7 @@
 import throttle from 'lodash.throttle';
 
-const localKey = "feedback-form-state"
+
+const LOCAL_KEY = "feedback-form-state"
 
 const form = document.querySelector('.feedback-form')
 const inputName = document.querySelector('.feedback-form input')
@@ -14,33 +15,33 @@ textareaContent.addEventListener('input', throttle(onInput, 500))
 
 function submitOnForm(evt)  {
     evt.preventDefault()
-    const currentInfo = localStorage.getItem(localKey);
+    const currentInfo = localStorage.getItem(LOCAL_KEY);
     const parcedInfo = JSON.parse(currentInfo)
 
     evt.taget.reset();
-    localStorage.removeItem(parcedInfo);
+    localStorage.removeItem(LOCAL_KEY);
 
 }
 
-function onInput(evt) {
+function onInput() {
     const Info = {
         name: inputName.value,
         message: textareaContent.value
     }
     
-    localStorage.setItem(localKey, JSON.stringify(data));
+    localStorage.setItem(LOCAL_KEY, JSON.stringify(Info));
 }
 
 function addSavedInfo() {
-    const savedText = localStorage.getItem(localKey)
-    const parcedText = JSON.parse(savedText);
+    const savedText = localStorage.getItem(LOCAL_KEY)
+    const parsedText = JSON.parse(savedText);
 
-    if (parcedText) {
-        inputName.value = parcedText.name
+    if (parsedText) {
+        inputName.value = parsedText.name
     }
 
-    if (parcedText) {
-        textareaContent.value = parcedText.message
+    if (parsedText) {
+        textareaContent.value = parsedText.message
     }
 
 }
