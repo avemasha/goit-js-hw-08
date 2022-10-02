@@ -16,7 +16,7 @@ textareaContent.addEventListener('input', throttle(onInput, 500))
 function submitOnForm(evt)  {
     evt.preventDefault()
     const currentInfo = localStorage.getItem(LOCAL_KEY);
-    const parcedInfo = JSON.parse(currentInfo)
+    const parsedInfo = JSON.parse(currentInfo)
 
     evt.taget.reset();
     localStorage.removeItem(LOCAL_KEY);
