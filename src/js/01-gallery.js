@@ -24,6 +24,8 @@ function createGalleryItem(galleryItems) {
     .join('');
 }
 let gallery = new SimpleLightbox('.gallery a');
+
+
 function galleryOnClick(event) {
   event.preventDefault();
   if (!event.target.classList.contains('gallery__image')) {

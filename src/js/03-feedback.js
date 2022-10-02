@@ -18,7 +18,7 @@ function submitOnForm(evt)  {
     const currentInfo = localStorage.getItem(LOCAL_KEY);
     const parsedInfo = JSON.parse(currentInfo)
 
-    evt.taget.reset();
+    evt.target.reset();
     localStorage.removeItem(LOCAL_KEY);
 
 }
